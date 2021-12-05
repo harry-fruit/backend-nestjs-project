@@ -4,11 +4,11 @@ import { AppModule } from './modules/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const port = process.env.APP_PORT;
+  const port = process.env.API_PORT;
 
   const config = new DocumentBuilder()
     .setTitle('Nest API')
-    .setDescription('API fornecer dados para a minha aplicação treino construida em Angular.')
+    .setDescription('API to supply some data to my new front-end application build with Angular 9.')
     .setVersion('1.0')
     .addTag('Nest API')
     .build();
@@ -17,6 +17,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
   console.log(`Running on port ${port}`)
   
-  await app.listen(3000);
+  await app.listen(port);
 }
 bootstrap();
